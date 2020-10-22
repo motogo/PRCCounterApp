@@ -1,0 +1,17 @@
+Bedienbarkeit Excercicer, ruppig.
+Kommt bildschirschoner dann ist ANwendung geshclossen und Board nicht mehr initialisierbar.
+
+shutdown.exe /r /o /f /t 00
+
+
+KOmmandozeile im AdminModus:
+BCDEDIT –Set LoadOptions DDISABLE_INTEGRITY_CHECKS
+BCDEDIT –Set TESTSIGNING ON
+
+Zuerst muss man die lokalen Gruppenrichtlinien öffnen. Dies geht bspw. 
+indem man die Windows-Taste + R drückt, dann gpedit.msc eingibt und mit Enter bestätigt.
+Nun navigiert man, über Benutzerkonfiguration -> Administrative Vorlagen -> System -> Treiberinstallation, 
+zum Punkt Codesignatur für Gerätetreiber und öffnet diesen mit einem Doppelklick
+Standardmäßig ist hier Nicht konfiguriert eingestellt. 
+Dies ändert man auf Aktiviert und wählt unter 
+Beim Ermitteln einer Treiberdatei ohne digitale Signatur den Punkt Ignorieren.

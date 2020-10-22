@@ -1,0 +1,140 @@
+; Installation INF for the GuideTech GT668 USB Driver
+;
+; (c) Copyright 2017 GuideTech, LLC
+;
+
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%GTUSB_Provider%
+DriverVer=07/19/2018,1.2.4.1
+DriverPackageType=PlugAndPlay
+
+[SourceDisksNames]
+1=%GTUSB_Install%,,,
+
+[SourceDisksFiles]
+GTUSB.sys = 1
+
+[DestinationDirs]
+GTUSB.Files.Ext = 10,System32\Drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%GTUSB_Provider%=Device,NT,NTx86,NTamd64
+
+;for all platforms
+[Device.NT]
+%VID_2EC0&PID_9056.DeviceDesc%=GTUSB, USB\VID_2EC0&PID_9056
+
+;for x86 platforms
+[Device.NTx86]
+%VID_2EC0&PID_9056.DeviceDesc%=GTUSB, USB\VID_2EC0&PID_9056
+
+;for x64 platforms
+[Device.NTamd64]
+%VID_2EC0&PID_9056.DeviceDesc%=GTUSB, USB\VID_2EC0&PID_9056
+
+[GTUSB.NT]
+CopyFiles=GTUSB.Files.Ext
+AddReg=GTUSB.AddReg
+
+[GTUSB.NT.HW]
+AddReg=GTUSB.AddReg.Guid
+
+[GTUSB.NT.Services]
+Addservice = GTUSB,2,GTUSB.AddService
+
+
+[GTUSB.NTx86]
+CopyFiles=GTUSB.Files.Ext
+AddReg=GTUSB.AddReg
+
+[GTUSB.NTx86.HW]
+AddReg=GTUSB.AddReg.Guid
+
+[GTUSB.NTx86.Services]
+Addservice = GTUSB,2,GTUSB.AddService
+
+[GTUSB.NTamd64]
+CopyFiles=GTUSB.Files.Ext
+AddReg=GTUSB.AddReg
+
+[GTUSB.NTamd64.HW]
+AddReg=GTUSB.AddReg.Guid
+
+[GTUSB.NTamd64.Services]
+Addservice = GTUSB,2,GTUSB.AddService
+
+
+[GTUSB.AddReg]
+; Deprecating - do not use in new apps to identify a GTUSB driver
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,GTUSB.sys
+; You may optionally include a check for DriverBase in your application to check for a GTUSB driver
+HKR,,DriverBase,,GTUSB.sys
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,,FriendlyName,,%GTUSB_Description%
+
+[GTUSB.AddService]
+DisplayName    = %GTUSB_Description%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\GTUSB.sys
+AddReg         = GTUSB.AddReg
+LoadOrderGroup = Base
+
+[GTUSB.Files.Ext]
+GTUSB.sys
+
+[GTUSB.AddReg.Guid]
+HKR,,DriverGUID,,%GTUSB.GUID%
+
+;-------------- WDF Coinstaller installation
+[SourceDisksFiles]
+WdfCoInstaller01011.dll=1 ; make sure the number matches with SourceDisksNames
+
+[DestinationDirs]
+CoInstaller_CopyFiles = 11
+
+[GTUSB.NTamd64.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[GTUSB.NTx86.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01011.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01011.dll,WdfCoInstaller"
+
+[GTUSB.NTamd64.Wdf]
+KmdfService = GTUSB, GTUSB_wdfsect
+
+[GTUSB.NTx86.Wdf]
+KmdfService = GTUSB, GTUSB_wdfsect
+
+[GTUSB_wdfsect]
+KmdfLibraryVersion = 1.15
+
+
+[Strings]
+GTUSB_Provider    = "GuideTech"
+GTUSB_Companyr     = "GuideTech, LLC."
+GTUSB_Description = "GT668 USB3.0 Driver"
+GTUSB_DisplayName = "GT668 USB3.0 Driver"
+GTUSB_Install     = "GT668 USB3.0 Driver Installation Disk"
+VID_2EC0&PID_9056.DeviceDesc="GuideTech GT668USB Device"
+
+
+GTUSB.GUID="{A7959293-CFAC-48A9-8424-725CB593D733}"
+GTUSB_Unused      = "."

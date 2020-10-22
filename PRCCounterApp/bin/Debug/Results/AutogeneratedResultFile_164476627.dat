@@ -1,0 +1,14 @@
+#startdate:22.10.2020 10.30.59
+#measoffset:0
+#titel:Default config done by application
+#xtitel:timestamp (s)
+#ytitel:offset (ns)
+#yscale:0
+#legend:pps A-B
+#color:blue
+#marker:0
+#subplot:0
+#colsplit:,
+#rowsplit:;
+#measname:Default config done by application
+1,8.33768898367282E-09;

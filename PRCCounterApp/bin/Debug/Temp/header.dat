@@ -1,0 +1,16 @@
+#startmjd:0
+#endmjd:0
+#offset:0.0
+#titel:Frequenz 10Mhz an Input A freq_a freq_a mit GT900, 1.7.1 USB3
+#xtitel:timestamp (s)
+#ytitel:frequency (Hz)
+#yscale:0
+#legend:delta frequency 10Mhz
+#color:blue
+#marker:*
+#subplot:0
+#colsplit:,
+#rowsplit:;
+#temp:D:\temp
+#logfile:D:\temp\log\log.txt
+#measname:messung

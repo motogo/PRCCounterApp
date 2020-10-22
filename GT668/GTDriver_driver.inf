@@ -1,0 +1,78 @@
+; Copyright (c) 2014 GuideTech.
+;
+; Installs GTDriver.sys as a driver for a pseudo-device
+;
+
+[Version]
+Signature=$CHICAGO$
+Class=GuideTech
+ClassGuid={378055D3-9E0A-46f8-B7CA-23F3247890F2}
+Provider=%MFGNAME%
+DriverVer=10/18/2015, 1.5.0
+
+[Manufacturer]
+%MFGNAME%=DeviceList,NTamd64
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[SourceDisksFiles]
+GTDriver.sys=1
+
+[SourceDisksNames]
+1=%INSTDISK%,,,.
+
+; x86 platform, Win9x, Windows 2000 and later
+[DeviceList]
+%DESCRIPTION%=DriverInstall,GTDriver
+
+; x64 platform, Windows XP x64 edition and later
+[DeviceList.NTamd64]
+%DESCRIPTION%=DriverInstall,GTDriver
+
+[ClassInstall32]  ; Register a new class in Windows 2000 and later
+AddReg=UpDateRegistry
+
+[UpDateRegistry]
+HKR,,,,GuideTech
+HKR,,Icon,,-5
+
+;------------------------------------------------------------------------------
+;  Windows 2000 and later Sections (x86 and x64 platforms)
+;------------------------------------------------------------------------------
+
+[DriverInstall.NT]
+CopyFiles=DriverCopyFiles
+
+[DriverCopyFiles]
+GTDriver.sys,,,0x6  ; COPYFLG_NOSKIP | COPYFLG_NOVERSIONCHECK
+
+[DriverInstall.NT.Services]
+AddService=GTDriver,2,DriverService
+
+[DriverService]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary=%10%\system32\drivers\GTDriver.sys
+AddReg = GTDriver.AddReg
+
+[GTDriver.AddReg]
+;Set the value below to 1 to enable legacy read/write of PCI configuration space
+HKR, Parameters, PciCfgRwCompat, 0x00010001, 0
+
+[DriverInstall.NT.hw]
+AddReg=DriverHwAddReg
+
+[DriverHwAddReg]
+HKR,,SampleInfo,,""
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+MFGNAME="GuideTech"
+INSTDISK="GTDriver Installation Disc"
+DESCRIPTION="GTDriver"
+

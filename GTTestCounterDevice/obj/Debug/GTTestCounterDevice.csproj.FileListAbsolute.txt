@@ -1,0 +1,15 @@
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.csprojAssemblyReference.cache
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.Properties.Resources.resources
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.csproj.GenerateResource.cache
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.csproj.CoreCompileInputs.cache
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\bin\Debug\GTTestCounterDevice.exe.config
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\bin\Debug\GTTestCounterDevice.exe
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\bin\Debug\GTTestCounterDevice.pdb
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\bin\Debug\BasicClassLibrary.dll
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\bin\Debug\GT668Library.dll
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\bin\Debug\BasicClassLibrary.pdb
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\bin\Debug\GT668Library.pdb
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.csproj.CopyComplete
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.exe
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.pdb
+D:\Projekte2015\PRCCounterApp\GTTestCounterDevice\obj\Debug\GTTestCounterDevice.MainForm.resources
