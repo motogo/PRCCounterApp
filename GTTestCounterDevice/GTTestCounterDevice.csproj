@@ -86,5 +86,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PRCGlobalLib\PRCGlobalLib\PRCGlobalLib.csproj">
+      <Project>{67EE6905-306C-40CF-9772-C720C3A0BCD6}</Project>
+      <Name>PRCGlobalLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

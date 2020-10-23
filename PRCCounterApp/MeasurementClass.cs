@@ -2,6 +2,7 @@
 using Enums;
 using GT668Library;
 using GuideTech;
+using PRCGlobalLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -489,7 +490,9 @@ namespace PRCCounterApp
             MeasurementConfigClass mcc = ob.measConfig;
 
             //Info(++cmd_cnt, worker, InfoLine, $@"Allocating API..."));
-            Info(++cmd_cnt, worker, InfoLine, $@"Allocating API {ob.GetDriverVersion()}...");
+            string api = ob.GetDriverVersion().ToString();
+            mcc.measAPI = api;
+            Info(++cmd_cnt, worker, InfoLine, $@"Allocating API {api}...");
             Thread.Sleep(1000);
 
             Info(++cmd_cnt, worker, InfoLine, $@"Initializing the instruments board {mcc.board} and sets to current...");
@@ -615,19 +618,20 @@ namespace PRCCounterApp
             bool ok = ob.StartMeasurements();                    /* reset measurement memory   */
             Info(2, worker, InfoLine, $@"Measurement started --> {ok}");
 
-            Info(0, worker, DataAttributesLine, $@"#startdate:{DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss")}");
-            Info(0, worker, DataAttributesLine, $@"#measoffset:{ob.measConfig.userDefinedYOffset}");
-            Info(0, worker, DataAttributesLine, $@"#titel:{ob.measConfig.measName}");
-            Info(0, worker, DataAttributesLine, $@"#xtitel:{ob.measConfig.XLegendName}");
-            Info(0, worker, DataAttributesLine, $@"#ytitel:{ob.measConfig.YLegendName}");
-            Info(0, worker, DataAttributesLine, $@"#yscale:{ob.measConfig.ScaleYAxis}");
-            Info(0, worker, DataAttributesLine, $@"#legend:{ob.measConfig.GraphLegendName}");
-            Info(0, worker, DataAttributesLine, $@"#color:blue");
-            Info(0, worker, DataAttributesLine, $@"#marker:0");
-            Info(0, worker, DataAttributesLine, $@"#subplot:0");
-            Info(0, worker, DataAttributesLine, $@"#colsplit:,");
-            Info(0, worker, DataAttributesLine, $@"#rowsplit:;");
-            Info(0, worker, DataAttributesLine, $@"#measname:{ob.measConfig.measName}");
+            Info(0, worker, DataAttributesLine, $@"#startdate:{DateTime.Now.ToString(SystemConsts.default_dateformat)}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.measoffset}:{ob.measConfig.userDefinedYOffset}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.measdevice}:{ob.measConfig.measDevice.ToString()}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.measapi}:{ob.measConfig.measAPI}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.xtitel}:{ob.measConfig.XLegendName}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.xtitel}:{ob.measConfig.YLegendName}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.yscale}:{ob.measConfig.ScaleYAxis}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.legend}:{ob.measConfig.GraphLegendName}");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.color}:blue");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.marker}:0");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.subplot}:0");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.colsplit}:,");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.rowsplit}:;");
+            Info(0, worker, DataAttributesLine, $@"#{GraphAttributesConsts.measname}:{ob.measConfig.measName}");
 
             return ok;
         }
@@ -638,7 +642,9 @@ namespace PRCCounterApp
             MeasurementConfigClass mcc = ob.measConfig;
 
             //Info(++cmd_cnt, worker, InfoLine, $@"Allocating API..."));
-            Info(++cmd_cnt,worker,InfoLine, $@"Allocating API {ob.GetDriverVersion()}...");
+            string api = ob.GetDriverVersion().ToString();
+            mcc.measAPI = api;
+            Info(++cmd_cnt,worker,InfoLine, $@"Allocating API {api}...");
             Thread.Sleep(1000);
 
             Info(++cmd_cnt, worker, InfoLine, $@"Initializing the instruments board {mcc.board} and sets to current...");
@@ -756,8 +762,9 @@ namespace PRCCounterApp
         {
             int cmd_cnt = 0;
             MeasurementConfigClass mcc = ob.measConfig;
-
-            Info(++cmd_cnt, worker, InfoLine, $@"Allocating API {ob.GetDriverVersion()}...");
+            string api = ob.GetDriverVersion().ToString();
+            mcc.measAPI = api;
+            Info(++cmd_cnt, worker, InfoLine, $@"Allocating API {api}...");
             Thread.Sleep(1000);
 
             Info(++cmd_cnt, worker, InfoLine, $@"Initializing the instruments board {mcc.board} and sets to current...");

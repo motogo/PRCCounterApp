@@ -83,6 +83,26 @@ namespace PRCCounterApp.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap document_blue_x24 {
+            get {
+                object obj = ResourceManager.GetObject("document_blue_x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap document_x24 {
+            get {
+                object obj = ResourceManager.GetObject("document_x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap floppy_x24 {
             get {
                 object obj = ResourceManager.GetObject("floppy_x24", resourceCulture);
@@ -116,6 +136,16 @@ namespace PRCCounterApp.Properties {
         internal static System.Drawing.Bitmap folder_open_22x {
             get {
                 object obj = ResourceManager.GetObject("folder_open_22x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap format_indent_more_2_32x {
+            get {
+                object obj = ResourceManager.GetObject("format_indent_more_2_32x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

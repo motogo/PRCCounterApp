@@ -1,6 +1,7 @@
 ﻿using BasicClassLibrary;
 using Enums;
 using GT668Library;
+using PRCGlobalLib;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -22,7 +23,7 @@ namespace GTTestCounterDevice
         {
             if (k.Key.ToString() == InfoLine)
             {
-                string mld = (k.Meldung.Length > 2) ? $@"{DateTime.Now.ToString("yyyy.MM.dd HH.mm.ss")}: {k.Meldung}" : k.Meldung;
+                string mld = (k.Meldung.Length > 2) ? $@"{DateTime.Now.ToString(SystemConsts.default_dateformat)}: {k.Meldung}" : k.Meldung;
                 Console.WriteLine(mld);
                 rtResults.AppendText($@"{mld}");
                 rtResults.ScrollToCaret();

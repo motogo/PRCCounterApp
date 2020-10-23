@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GT668Library", "GT668Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTTestCounterDevice", "GTTestCounterDevice\GTTestCounterDevice.csproj", "{6F2485E7-3C65-4A5D-9DF8-2D87BE0C7197}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRCGlobalLib", "..\PRCGlobalLib\PRCGlobalLib\PRCGlobalLib.csproj", "{67EE6905-306C-40CF-9772-C720C3A0BCD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{6F2485E7-3C65-4A5D-9DF8-2D87BE0C7197}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F2485E7-3C65-4A5D-9DF8-2D87BE0C7197}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F2485E7-3C65-4A5D-9DF8-2D87BE0C7197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EE6905-306C-40CF-9772-C720C3A0BCD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EE6905-306C-40CF-9772-C720C3A0BCD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EE6905-306C-40CF-9772-C720C3A0BCD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EE6905-306C-40CF-9772-C720C3A0BCD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

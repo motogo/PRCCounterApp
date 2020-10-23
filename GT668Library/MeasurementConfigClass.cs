@@ -1,5 +1,6 @@
 ﻿
 using Enums;
+using MessageFormLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,16 @@ namespace GT668Library
         AVARfile = 2,
         [EnumDescription("Time Analyzer File")]
         timeAnalyzerFile = 3
+    }
+    [Serializable]
+    public enum eMeasDevice
+    {
+        [EnumDescription("GT900IP-USB3")]
+        GT900IP_USB3 = 0,
+        [EnumDescription("GT668")]
+        GT668 = 1,
+        [EnumDescription("Other")]
+        Other = 9
     }
     [Serializable]
     public class ResultDefinition
@@ -52,6 +63,12 @@ namespace GT668Library
     {
         private string MainPfad = System.Environment.CurrentDirectory;
         public string XMLName;
+
+        [XmlElement("MeasurmentDevice")]
+        public eMeasDevice measDevice;
+
+        [XmlElement("MeasurmentAPI")]
+        public string measAPI;
 
         [XmlElement("MeasurmentName")]
         public string measName;
@@ -206,8 +223,10 @@ namespace GT668Library
                 var PF = (MeasurementConfigClass)serializer.Deserialize(reader);
                 reader.Close();
 
-                this.measName = PF.measName;
-                this.measInfo = PF.measInfo;
+                this.measName   = PF.measName;
+                this.measDevice = PF.measDevice;
+                this.measAPI    = PF.measAPI;
+                this.measInfo   = PF.measInfo;
                 this.enableChannel0 = PF.enableChannel0;
                 this.enableChannel1 = PF.enableChannel1;
                 this.measGateChannel0 = PF.measGateChannel0;
@@ -243,14 +262,16 @@ namespace GT668Library
                     rd.DataSource       = PF.ResultDefinitions[i].DataSource;
                     this.ResultDefinitions.Add(rd);
                 }
-                
+
                 ok = true;
             }
             catch (Exception ex)
             {
                 ok = false;
                 loadOK = ok;
-                MessageBox.Show(ex.Message, "Konfiguration der Anwendung konnte nicht geladen werden.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                
+                SEMessageBox.ShowDialog("#Konfiguration der Anwendung konnte nicht geladen werden.", $@"#{ex.Message}",  SEMessageBoxIcon.Exclamation, SEMessageBoxButtons.OK);
+
                 return (ok);
 
             }

@@ -2,10 +2,12 @@
 using Enums;
 using GT668Library;
 using GuideTech;
+using MessageFormLibrary;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using PRCCounterApp;
 using PRCCounterApp.Globales;
+using PRCGlobalLib;
 using PRCLibrary;
 using System;
 using System.Collections.Generic;
@@ -24,7 +26,7 @@ using System.Windows.Forms;
 
 namespace GuideTech
 {
-   
+
     public partial class Form1 : Form
     {
         readonly NotifiesClass nf = new NotifiesClass();
@@ -66,15 +68,15 @@ namespace GuideTech
             {
                 txtActInfo.Text = k.Meldung;
                 if (cbResultLogActive.Checked)
-                { 
+                {
                     rtResultLogs.AppendText($@"{k.Meldung}{Environment.NewLine}");
                     rtResultLogs.ScrollToCaret();
                 }
                 if (k.Data != null)
                 {
-                    var dt = (ResultDataClass) k.Data;
+                    var dt = (ResultDataClass)k.Data;
                     DataRow dr = dsResults.Tables[0].NewRow();
-                    dr.ItemArray = new object[] {dt.ID ,dt.STAMP,dt.DATASTAMP, dt.VALUE,k.Meldung };
+                    dr.ItemArray = new object[] { dt.ID, dt.STAMP, dt.DATASTAMP, dt.VALUE, k.Meldung };
                     dsResults.Tables[0].Rows.Add(dr);
                     bsResults.Position = bsResults.Count;
                 }
@@ -93,14 +95,14 @@ namespace GuideTech
                 }
             }
             else if (k.Key.ToString() == AppInfoLine)
-            {                
+            {
                 //if (ckDebugmode.Checked) Console.WriteLine(k.Meldung);
                 rtbAppLog.AppendText($@"{k.Meldung}{Environment.NewLine}");
                 //if (cbUpdateLogEveryNewEntry.Checked) rtResultLogs.ScrollToCaret();
             }
         }
 
-        
+
 
         public Form1()
         {
@@ -115,15 +117,15 @@ namespace GuideTech
             temppath = Path.GetTempPath();
             apppath = Path.GetDirectoryName(assbly.Location);
             */
-            
+
             /*
             ConfigClass.Instance().WriteDefaultConfig($@"{Application.StartupPath}\Config\{appname}Config.xml");
             ConfigClass.Instance().XMLName = $@"{Application.StartupPath}\Config\{appname}Config.xml";
             ConfigClass.Instance().SerializeCurrent();
             */
-            
-            
-            
+
+
+
         }
 
         private void btnIsMaster_Click(object sender, EventArgs e)
@@ -181,12 +183,12 @@ namespace GuideTech
             return hex.ToString();
         }
 
-        private uint ActRaw=0U;
-        private uint[] RawData=new uint[1000];
-        private uint Offset=0U;
-        private uint RawCount=1000U;
-        private uint ReadCount=6U;
-        
+        private uint ActRaw = 0U;
+        private uint[] RawData = new uint[1000];
+        private uint Offset = 0U;
+        private uint RawCount = 1000U;
+        private uint ReadCount = 6U;
+
 
 
 
@@ -200,15 +202,15 @@ namespace GuideTech
 
         public string GetFilenemeFromPattern(string filepattern)
         {
-            string f = filepattern.Replace("<ticks>",StaticMeasFunctions.GetActDateTimeCnt().ToString());
+            string f = filepattern.Replace("<ticks>", StaticMeasFunctions.GetActDateTimeCnt().ToString());
             return f;
         }
 
         public List<ResultOutClass> GetResultFormats()
         {
-            var rc= new List<ResultOutClass>();
+            var rc = new List<ResultOutClass>();
             bsOutputDefinition.Position = 0;
-            for(int i =0; i < bsOutputDefinition.Count; i++)
+            for (int i = 0; i < bsOutputDefinition.Count; i++)
             {
                 bsOutputDefinition.Position = i;
                 DataRowView ob = (DataRowView)bsOutputDefinition.Current;
@@ -216,7 +218,7 @@ namespace GuideTech
                 string resultpath = ob.Row["outdefPATH"].ToString();
                 string resultfile = ob.Row["outdefFILEPATTERN"].ToString();
                 string resultdatasource = ob.Row["outdefDATASOURCE"].ToString();
-                bool active = (bool) ob.Row["outdefACTIVE"];
+                bool active = (bool)ob.Row["outdefACTIVE"];
                 ResultOutClass r = new ResultOutClass();
                 r.format = fmt;
                 r.ResultFile = $@"{resultpath}\{GetFilenemeFromPattern(resultfile)}";
@@ -228,7 +230,7 @@ namespace GuideTech
                 {
                     r.DataSource = eDatasource.file;
                 }
-                if(r.DataSource == eDatasource.file)
+                if (r.DataSource == eDatasource.file)
                 {
                     r.fl = new StreamWriter(r.ResultFile, true);
                     r.Active = active;
@@ -242,24 +244,24 @@ namespace GuideTech
 
         private void hsRun_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-       
+
         private void BetGetMeasInput_Click(object sender, EventArgs e)
         {
             int ch = StaticFunctionsClass.ToIntDef(txtCh2.Text, -1);
             if (ch < 0) return;
-            
+
             var sel = GT900USBClass.GtiInputSel.GT_CLOCK;
             ob.GetMeasInput(ch, ref sel);
             txtMeasInput.Text = sel.ToString();
-             
+
         }
 
         private void btnGetDriverVersion_Click(object sender, EventArgs e)
         {
-            
+
             string str = ob.GetDriverVersion();
             txtDriver.Text = str;
         }
@@ -268,22 +270,22 @@ namespace GuideTech
         {
             int ch = StaticFunctionsClass.ToIntDef(txtInputA.Text, -1);
             if (ch < 0) return;
-            
 
-            if(ob != null) ob.SetMeasInput(ch, GT668Class.GtiInputSel.GT_CHA_POS);
+
+            if (ob != null) ob.SetMeasInput(ch, GT668Class.GtiInputSel.GT_CHA_POS);
         }
 
         private void btnSetInputB_Click(object sender, EventArgs e)
         {
             int ch = StaticFunctionsClass.ToIntDef(txtInputB.Text, -1);
             if (ch < 0) return;
-            
+
             if (ob != null) ob.SetMeasInput(ch, GT668Class.GtiInputSel.GT_CHB_POS);
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -302,7 +304,7 @@ namespace GuideTech
 
         private void btnCalibrate_Click_1(object sender, EventArgs e)
         {
-            
+
             bool ok = ob.SelfCal();
             uint ct = ob.GetCalTime();
             int err = ob.GetError();
@@ -313,14 +315,14 @@ namespace GuideTech
         {
             int sec = StaticFunctionsClass.ToIntDef(txtSetRealtime.Text, -1);
             if (sec < 0) return;
-            
+
             uint sec1 = 0;
             uint sec2 = 0;
 
             bool ok1 = ob.GetRealTime(ref sec1);
             int err1 = ob.GetError();
             txtGetRealtime1.Text = $@"{ok1} time:{sec1} error:{ob.GetErrorMessage(err1)}";
-            bool ok  = ob.SetRealTime((uint) sec, true);
+            bool ok = ob.SetRealTime((uint)sec, true);
             bool ok2 = ob.GetRealTime(ref sec2);
             int err2 = ob.GetError();
             txtGetRealtime2.Text = $@"{ok2} time:{sec2} error:{ob.GetErrorMessage(err2)}";
@@ -328,22 +330,22 @@ namespace GuideTech
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtSleep_TextChanged(object sender, EventArgs e)
         {
             txtSleep.BackColor = Color.White;
-            
+
         }
 
-        
+
 
         private void hsAssignLoops_Click(object sender, EventArgs e)
         {
             int n = handleClickInt(txtLoops, hsAssignLoops);
-          //  if (ob == null) return;
-          //  ob.measConfig.loops = n;
+            //  if (ob == null) return;
+            //  ob.measConfig.loops = n;
         }
 
         private int handleClickInt(object sender, SeControlsLib.HotSpot btn)
@@ -412,12 +414,12 @@ namespace GuideTech
             Console.SetError(soe);
         }
 
-        
+
 
 
         public void ShowStatistikGraph(FileInfo fi)
         {
-        // D:\Projekte2015\PRCMeasSolution\Anwendung\Scripts\AllanByFile_TDEV.py temppath = D:\Projekte2015\PRCCounterApp\PRCCounterApp\bin\Debug\Temp datafile = D:\PRCCounterApp\Results\AutogeneratedResultFile_160355499.dat logfile = D:\Projekte2015\PRCCounterApp\PRCCounterApp\bin\Debug\Temp\AllanFB_TDEV4.log debug = True xscaletype = log10 maxtau = 100000 errorbars = True phasetype = phase samplingrate = 1.0 xscaletype = log10 stattype = ADEV,0; TDEV,1; OADEV,2; MDEV,3
+            // D:\Projekte2015\PRCMeasSolution\Anwendung\Scripts\AllanByFile_TDEV.py temppath = D:\Projekte2015\PRCCounterApp\PRCCounterApp\bin\Debug\Temp datafile = D:\PRCCounterApp\Results\AutogeneratedResultFile_160355499.dat logfile = D:\Projekte2015\PRCCounterApp\PRCCounterApp\bin\Debug\Temp\AllanFB_TDEV4.log debug = True xscaletype = log10 maxtau = 100000 errorbars = True phasetype = phase samplingrate = 1.0 xscaletype = log10 stattype = ADEV,0; TDEV,1; OADEV,2; MDEV,3
             if (Directory.Exists(ConfigClass.Instance().LogPath) && Directory.Exists(ConfigClass.Instance().TempPath))
             {
                 string cmd = $@"python";
@@ -425,11 +427,11 @@ namespace GuideTech
                 ProcessStartInfo psi = new ProcessStartInfo();
                 psi.UseShellExecute = true;
                 psi.CreateNoWindow = true;
-               
+
                 psi.FileName = cmd;
                 string stattype = string.Empty;
                 int colinx = 0;
-                if(ckTDEV.Checked)
+                if (ckTDEV.Checked)
                 {
                     stattype += string.IsNullOrEmpty(stattype) ? $@" stattype=TDEV,{colinx++}" : $@";TDEV,{colinx++}";
                 }
@@ -472,7 +474,7 @@ namespace GuideTech
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($@"{ex.Message}", "Error ShowGraph", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        SEMessageBox.ShowDialog("#Error ShowGraph", $@"#{ex.Message}", SEMessageBoxIcon.Exclamation, SEMessageBoxButtons.OK);
                     }
                     psi.Arguments = $@"{ConfigClass.Instance().ScriptPath}\AllanByFile_TDEV.py temppath={ConfigClass.Instance().TempPath} datafile={fi.FullName} logfile={ConfigClass.Instance().TempPath}\AllanFB_TDEV4.log  headerfile={ConfigClass.Instance().TempPath}\header.dat debug=True xscaletype=log10 maxtau=100000 errorbars=True phasetype=phase samplingrate=1.0 xscaletype=log10{stattype}";
                     //psi.Arguments = $@"{ConfigClass.Instance().ScriptPath}\MultiPhaseLineByFile5.py logfile={ConfigClass.Instance().LogPath}\MultiPhaseLineByFile5.log temppath={ConfigClass.Instance().TempPath} datafile={fi.FullName} headerfile={ConfigClass.Instance().TempPath}\header.dat debug=true colsplit=, rowsplit=; timetype=sec outliers={txtOutliers.Text}";
@@ -494,11 +496,44 @@ namespace GuideTech
             }
             else
             {
-
                 MessageBox.Show($@"Temp:{ConfigClass.Instance().TempPath}{Environment.NewLine}Log:{ConfigClass.Instance().LogPath}", "Path not exists", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        public void MakeHeaderfile()
+        {
+            rtbHeaderfile.Clear();
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.usefileattributes}:False{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.startdate}:{txtMeasAttStartdate.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.starttime}:{txtMeasAttStarttime.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.endtime}:{txtMeasAttEndtime.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.graphoffset}:{txtYOffset.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.measoffset}:{txtMeasAttMeasOffset.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.graphoutliers}:{txtOutliers.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.titel}:{txtMeasAttMeasName.Text} {actMeasConfiguration.measType} , {txtMeasAttMeasDevice.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.xtitel}:{txtMeasAttXLegend.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.ytitel}:{txtMeasAttYLegend.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.yscale}:{txtMeasAttScaleYAxis.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.legend}:{txtMeasAttGraphLegend.Text}{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.color}:blue{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.marker}:*{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.subplot}:0{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.colsplit}:,{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.rowsplit}:;{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.temp}:D:\temp{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.logfile}:D:\temp\log\log.txt{Environment.NewLine}");
+            rtbHeaderfile.AppendText($@"#{GraphAttributesConsts.measname}:{txtMeasAttMeasName.Text}{Environment.NewLine}");
 
+
+            try
+            {
+                rtbHeaderfile.SaveFile($@"{ConfigClass.Instance().TempPath}\header.dat",RichTextBoxStreamType.PlainText);
+                gbHeaderfile.Text = $@"{ConfigClass.Instance().TempPath}\header.dat";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($@"{ex.Message}", "Error ShowGraph", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
         public void ShowGraph(FileInfo fi)
         {
              if(Directory.Exists(ConfigClass.Instance().LogPath)&&Directory.Exists(ConfigClass.Instance().TempPath))
@@ -513,32 +548,8 @@ namespace GuideTech
 
                 if (cbUseHeaderfile.Checked)
                 {
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine($@"#startmjd:0");
-                    sb.AppendLine($@"#endmjd:0");
-                    sb.AppendLine($@"#offset:0.0");
-                    sb.AppendLine($@"#titel:{actMeasConfiguration.measName} {actMeasConfiguration.measType} {actMeasConfiguration.measType} mit GT900, 1.7.1 USB3");
-                    sb.AppendLine($@"#xtitel:{actMeasConfiguration.XLegendName}");
-                    sb.AppendLine($@"#ytitel:{actMeasConfiguration.YLegendName}");
-                    sb.AppendLine($@"#yscale:{actMeasConfiguration.ScaleYAxis}");
-                    sb.AppendLine($@"#legend:{actMeasConfiguration.GraphLegendName}");
-                    sb.AppendLine($@"#color:blue");
-                    sb.AppendLine($@"#marker:*");
-                    sb.AppendLine($@"#subplot:0");
-                    sb.AppendLine($@"#colsplit:,");
-                    sb.AppendLine($@"#rowsplit:;");
-                    sb.AppendLine($@"#temp:D:\temp");
-                    sb.AppendLine($@"#logfile:D:\temp\log\log.txt");
-                    sb.AppendLine($@"#measname:messung");
-                    try
-                    {
-                        File.WriteAllText($@"{ConfigClass.Instance().TempPath}\header.dat", sb.ToString());
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($@"{ex.Message}", "Error ShowGraph", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                    psi.Arguments = $@"{ConfigClass.Instance().ScriptPath}\MultiPhaseLineByFile5.py logfile={ConfigClass.Instance().LogPath}\MultiPhaseLineByFile5.log temppath={ConfigClass.Instance().TempPath} datafile={fi.FullName} headerfile={ConfigClass.Instance().TempPath}\header.dat debug=true colsplit=, rowsplit=; timetype=sec outliers={txtOutliers.Text}";                    
+                    MakeHeaderfile();
+                    psi.Arguments = $@"{ConfigClass.Instance().ScriptPath}\MultiPhaseLineByFile5.py logfile={ConfigClass.Instance().LogPath}\MultiPhaseLineByFile5.log temppath={ConfigClass.Instance().TempPath} datafile={fi.FullName} headerfile={ConfigClass.Instance().TempPath}\header.dat debug=true colsplit=, rowsplit=; timetype=sec graphoutliers={txtOutliers.Text}";
                 }
                 else
                 {
@@ -568,6 +579,7 @@ namespace GuideTech
             gbActCommand.Text = $@"Act measurement:{mcc.measName}";
             txtMeasinfo.Text = mcc.measInfo;
             txtMeasname.Text = mcc.measName;
+            cbMeasconfigDevice.SelectedItem = mcc.measDevice;
             txtYLegend.Text = mcc.YLegendName;
             txtXLegend.Text = mcc.XLegendName;
             txtGraphLegend.Text = mcc.GraphLegendName;
@@ -639,6 +651,8 @@ namespace GuideTech
             mcc.loops               = Int32.Parse(txtLoops.Text);                        
             mcc.stamp               = DateTime.Now;
             mcc.measInfo            = txtMeasinfo.Text;
+            mcc.measDevice          = (eMeasDevice)cbMeasconfigDevice.SelectedItem;
+            
             mcc.measName            = txtMeasname.Text;
             mcc.YLegendName         = txtYLegend.Text;
             mcc.XLegendName         = txtXLegend.Text;
@@ -757,7 +771,7 @@ namespace GuideTech
                 row["outdefID"] = Guid.NewGuid();
                 row["outdefACTIVE"] = (object)true;
                 row["outdefFORMAT"] =  res.DataFormat;
-                row["outdefPATH"] = $@"{res.Path}\{res.FilePattern}_{DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss_f")}.dat";
+                row["outdefPATH"] = $@"{res.Path}\{res.FilePattern}_{DateTime.Now.ToString(SystemConsts.filename_dateformat)}.dat";
                 dsOutputDefintion.Tables[0].Rows.Add(row);
             }
         }
@@ -769,6 +783,7 @@ namespace GuideTech
 
             cbPrescaleA.Items.Clear();
             cbPrescaleB.Items.Clear();
+            cbMeasconfigDevice.Items.Clear();
 
             cbPrescaleA.Items.Add(GT668Class.GtiPrescale.GT_DIV_1);
             cbPrescaleA.Items.Add(GT668Class.GtiPrescale.GT_DIV_2);
@@ -799,6 +814,13 @@ namespace GuideTech
             cbPrescaleA.SelectedItem = GT668Class.GtiPrescale.GT_DIV_AUTO;
             cbPrescaleB.SelectedItem = GT668Class.GtiPrescale.GT_DIV_AUTO;
 
+            var lst = EnumHelper.ToList(typeof(eMeasDevice));
+            foreach (var l in lst)
+            {
+                KeyValuePair<Enum, string> ll = (KeyValuePair<Enum, string>)l;
+                cbMeasconfigDevice.Items.Add(ll.Key);
+            }
+            cbMeasconfigDevice.SelectedIndex = 0;
             string appConf = $@"{Application.StartupPath}\Config\{pa.AppName}Config.xml";
             if (!File.Exists(appConf))
             {
@@ -1306,7 +1328,7 @@ namespace GuideTech
         {
             if (actMeasConfiguration == null) return;
             string fn = txtFilesPath.Text;
-            
+            SetDefaultGraphAttributesUI();
             DirectoryInfo di = new DirectoryInfo(fn);
             if (di.Exists)
             {
@@ -1389,7 +1411,50 @@ namespace GuideTech
             }
         }
 
+        private void SetDefaultGraphAttributesUI()
+        {
+            txtMeasAttMeasName.Text = string.Empty;
+            txtMeasAttGraphLegend.Text = string.Empty;
+            txtMeasAttScaleYAxis.Text = string.Empty;
+            txtMeasAttXLegend.Text = string.Empty;
+            txtMeasAttYLegend.Text = string.Empty;
+            txtMeasAttStartdate.Text = DateTime.Now.ToString(SystemConsts.default_dateformat);
+            txtMeasAttMeasOffset.Text = "0";
+            txtMeasAttScaleYAxis.Text = "9";
+            txtMeasAttStarttime.Text = "0";
+            txtMeasAttEndtime.Text = "0";
+            txtMeasAttXLegend.Text = "Time(s)";
+            txtMeasAttYLegend.Text = "ns";
+            txtMeasAttMeasDevice.Text = string.Empty;
         
+        }
+        private void AddAttributesUI(string att)
+        {
+            int inx = att.IndexOf($@"{GraphAttributesConsts.measdevice}:");
+            if (inx > 0) txtMeasAttMeasDevice.Text = att.Substring(GraphAttributesConsts.measdevice.Length + 2);
+
+            inx = att.IndexOf($@"{GraphAttributesConsts.measname}:");
+            if(inx > 0) txtMeasAttMeasName.Text = att.Substring(GraphAttributesConsts.measname.Length+2);
+
+            inx = att.IndexOf($@"{GraphAttributesConsts.legend}:");
+            if (inx > 0) txtMeasAttGraphLegend.Text = att.Substring(GraphAttributesConsts.legend.Length + 2);
+
+            inx = att.IndexOf($@"{GraphAttributesConsts.yscale}:");
+            if (inx > 0) txtMeasAttScaleYAxis.Text = att.Substring(GraphAttributesConsts.yscale.Length + 2);
+
+            inx = att.IndexOf($@"{GraphAttributesConsts.xtitel}:");
+            if (inx > 0) txtMeasAttXLegend.Text = att.Substring(GraphAttributesConsts.xtitel.Length + 2);
+
+            inx = att.IndexOf($@"{GraphAttributesConsts.ytitel}:");
+            if (inx > 0) txtMeasAttYLegend.Text = att.Substring(GraphAttributesConsts.ytitel.Length + 2);
+
+            inx = att.IndexOf($@"{GraphAttributesConsts.startdate}:");
+            if (inx > 0) txtMeasAttStartdate.Text = att.Substring(GraphAttributesConsts.startdate.Length + 2);
+
+            inx = att.IndexOf($@"{GraphAttributesConsts.measoffset}:");
+            if (inx > 0) txtMeasAttMeasOffset.Text = att.Substring(GraphAttributesConsts.measoffset.Length + 2);
+
+        }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -1400,26 +1465,28 @@ namespace GuideTech
                     FileInfo fi = (FileInfo)dataGridView1.SelectedRows[0].Tag;
                     
                     rtbDataFile.Clear();
+                    SetDefaultGraphAttributesUI();
                     try
                     {
-                        if (fi.Length > 10000)
-                        {
-                            StreamReader sr = new StreamReader(fi.FullName);
-                            string myLine;
-                            int count_lines = 0;
-                            int max_lines = 1000;
+                        
+                        StreamReader sr = new StreamReader(fi.FullName);
+                        string myLine;
+                        int count_lines = 0;
+                        int max_lines = 1000;
 
-                            while (((myLine = sr.ReadLine()) != null) && (count_lines < max_lines))
+                        while (((myLine = sr.ReadLine()) != null) && (count_lines < max_lines))
+                        {
+                            rtbDataFile.AppendText(myLine + "\n");
+                            if(myLine.StartsWith("#"))
                             {
-                                rtbDataFile.AppendText(myLine + "\n");
-                                count_lines++;
-
+                                AddAttributesUI(myLine);
                             }
+                            count_lines++;
+
                         }
-                        else
-                        {
-                            rtbDataFile.LoadFile(fi.FullName, RichTextBoxStreamType.PlainText);
-                        }
+                        
+                        MakeHeaderfile();
+                       
                     }
                     catch(Exception ex)
                     {
@@ -1457,6 +1524,11 @@ namespace GuideTech
                 ShowStatistikGraph(fi);
                 RedirectConsoleToDefault();
             }
+        }
+
+        private void hsMakeHeader_Click(object sender, EventArgs e)
+        {
+            MakeHeaderfile();
         }
     }
 }

@@ -171,6 +171,9 @@
             this.gbMeasname = new System.Windows.Forms.GroupBox();
             this.txtMeasname = new System.Windows.Forms.TextBox();
             this.cbActualMeasConfiguration = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.gbMeasconfigDevice = new System.Windows.Forms.GroupBox();
+            this.cbMeasconfigDevice = new System.Windows.Forms.ComboBox();
             this.gbSleepAfterSingleRead = new System.Windows.Forms.GroupBox();
             this.txtSleepEverySingleRead = new System.Windows.Forms.TextBox();
             this.gbMeasType = new System.Windows.Forms.GroupBox();
@@ -262,21 +265,49 @@
             this.tabPageMeasFiles = new System.Windows.Forms.TabPage();
             this.pnlMeasResultsCenter = new System.Windows.Forms.Panel();
             this.gbFileInfos = new System.Windows.Forms.GroupBox();
-            this.rtbDataFile = new System.Windows.Forms.RichTextBox();
+            this.spcResultFiles = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFileCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFileSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbDatafile = new System.Windows.Forms.GroupBox();
+            this.rtbDataFile = new System.Windows.Forms.RichTextBox();
+            this.gbHeaderfile = new System.Windows.Forms.GroupBox();
+            this.rtbHeaderfile = new System.Windows.Forms.RichTextBox();
             this.pnlResultfilesLeft = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.gbMeasAttMeasOffset = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttMeasOffset = new System.Windows.Forms.TextBox();
+            this.gbMeasAttEndtime = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttEndtime = new System.Windows.Forms.TextBox();
+            this.gbMeasAttStarttime = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttStarttime = new System.Windows.Forms.TextBox();
+            this.gbMeasAttStartdate = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttStartdate = new System.Windows.Forms.TextBox();
+            this.gbMeasAttMeasDevice = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttMeasDevice = new System.Windows.Forms.TextBox();
+            this.gbMeasAttScaleYAxis = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttScaleYAxis = new System.Windows.Forms.TextBox();
+            this.gbMeasAttGraph = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttGraphLegend = new System.Windows.Forms.TextBox();
+            this.gbMeasAttXLegend = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttXLegend = new System.Windows.Forms.TextBox();
+            this.gbMeasAttYLegend = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttYLegend = new System.Windows.Forms.TextBox();
+            this.gbMeasAttMeasName = new System.Windows.Forms.GroupBox();
+            this.txtMeasAttMeasName = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.hsMakeHeader = new SeControlsLib.HotSpot();
             this.hsRunGraph = new SeControlsLib.HotSpot();
+            this.cbUseHeaderfile = new System.Windows.Forms.CheckBox();
             this.gbStatistikType = new System.Windows.Forms.GroupBox();
             this.ckMDEV = new System.Windows.Forms.CheckBox();
             this.hsShowGraphStatistik = new SeControlsLib.HotSpot();
             this.ckOADEV = new System.Windows.Forms.CheckBox();
             this.ckADEV = new System.Windows.Forms.CheckBox();
             this.ckTDEV = new System.Windows.Forms.CheckBox();
-            this.cbUseHeaderfile = new System.Windows.Forms.CheckBox();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.gbOutliers = new System.Windows.Forms.GroupBox();
             this.hotSpot1 = new SeControlsLib.HotSpot();
             this.hsOutliers3 = new SeControlsLib.HotSpot();
@@ -350,6 +381,8 @@
             this.gbMeasinfos.SuspendLayout();
             this.gbMeasname.SuspendLayout();
             this.cbActualMeasConfiguration.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.gbMeasconfigDevice.SuspendLayout();
             this.gbSleepAfterSingleRead.SuspendLayout();
             this.gbMeasType.SuspendLayout();
             this.gbMeasOptions.SuspendLayout();
@@ -386,10 +419,28 @@
             this.tabPageMeasFiles.SuspendLayout();
             this.pnlMeasResultsCenter.SuspendLayout();
             this.gbFileInfos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spcResultFiles)).BeginInit();
+            this.spcResultFiles.Panel1.SuspendLayout();
+            this.spcResultFiles.Panel2.SuspendLayout();
+            this.spcResultFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.gbDatafile.SuspendLayout();
+            this.gbHeaderfile.SuspendLayout();
             this.pnlResultfilesLeft.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.gbMeasAttMeasOffset.SuspendLayout();
+            this.gbMeasAttEndtime.SuspendLayout();
+            this.gbMeasAttStarttime.SuspendLayout();
+            this.gbMeasAttStartdate.SuspendLayout();
+            this.gbMeasAttMeasDevice.SuspendLayout();
+            this.gbMeasAttScaleYAxis.SuspendLayout();
+            this.gbMeasAttGraph.SuspendLayout();
+            this.gbMeasAttXLegend.SuspendLayout();
+            this.gbMeasAttYLegend.SuspendLayout();
+            this.gbMeasAttMeasName.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.gbStatistikType.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.gbOutliers.SuspendLayout();
             this.flpResults.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -537,7 +588,7 @@
             // gbSleep
             // 
             this.gbSleep.Controls.Add(this.txtSleep);
-            this.gbSleep.Location = new System.Drawing.Point(389, 87);
+            this.gbSleep.Location = new System.Drawing.Point(401, 98);
             this.gbSleep.Name = "gbSleep";
             this.gbSleep.Size = new System.Drawing.Size(132, 38);
             this.gbSleep.TabIndex = 14;
@@ -984,7 +1035,7 @@
             this.ckShowResults.AutoSize = true;
             this.ckShowResults.Checked = true;
             this.ckShowResults.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckShowResults.Location = new System.Drawing.Point(182, 19);
+            this.ckShowResults.Location = new System.Drawing.Point(208, 98);
             this.ckShowResults.Name = "ckShowResults";
             this.ckShowResults.Size = new System.Drawing.Size(116, 17);
             this.ckShowResults.TabIndex = 23;
@@ -1002,7 +1053,7 @@
             // ckNewMeas
             // 
             this.ckNewMeas.AutoSize = true;
-            this.ckNewMeas.Location = new System.Drawing.Point(182, 65);
+            this.ckNewMeas.Location = new System.Drawing.Point(208, 144);
             this.ckNewMeas.Name = "ckNewMeas";
             this.ckNewMeas.Size = new System.Drawing.Size(166, 17);
             this.ckNewMeas.TabIndex = 26;
@@ -1014,7 +1065,7 @@
             this.ckChannel0.AutoSize = true;
             this.ckChannel0.Checked = true;
             this.ckChannel0.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckChannel0.Location = new System.Drawing.Point(9, 111);
+            this.ckChannel0.Location = new System.Drawing.Point(8, 19);
             this.ckChannel0.Name = "ckChannel0";
             this.ckChannel0.Size = new System.Drawing.Size(115, 17);
             this.ckChannel0.TabIndex = 27;
@@ -1027,7 +1078,7 @@
             this.ckChannel1.AutoSize = true;
             this.ckChannel1.Checked = true;
             this.ckChannel1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckChannel1.Location = new System.Drawing.Point(9, 134);
+            this.ckChannel1.Location = new System.Drawing.Point(8, 42);
             this.ckChannel1.Name = "ckChannel1";
             this.ckChannel1.Size = new System.Drawing.Size(115, 17);
             this.ckChannel1.TabIndex = 28;
@@ -1068,7 +1119,7 @@
             // ckMemoryWrap
             // 
             this.ckMemoryWrap.AutoSize = true;
-            this.ckMemoryWrap.Location = new System.Drawing.Point(390, 15);
+            this.ckMemoryWrap.Location = new System.Drawing.Point(403, 24);
             this.ckMemoryWrap.Name = "ckMemoryWrap";
             this.ckMemoryWrap.Size = new System.Drawing.Size(89, 17);
             this.ckMemoryWrap.TabIndex = 30;
@@ -1115,7 +1166,7 @@
             // ckCal
             // 
             this.ckCal.AutoSize = true;
-            this.ckCal.Location = new System.Drawing.Point(182, 42);
+            this.ckCal.Location = new System.Drawing.Point(208, 121);
             this.ckCal.Name = "ckCal";
             this.ckCal.Size = new System.Drawing.Size(166, 17);
             this.ckCal.TabIndex = 35;
@@ -1157,7 +1208,7 @@
             // ckReadRAW
             // 
             this.ckReadRAW.AutoSize = true;
-            this.ckReadRAW.Location = new System.Drawing.Point(390, 38);
+            this.ckReadRAW.Location = new System.Drawing.Point(403, 47);
             this.ckReadRAW.Name = "ckReadRAW";
             this.ckReadRAW.Size = new System.Drawing.Size(81, 17);
             this.ckReadRAW.TabIndex = 40;
@@ -1169,7 +1220,7 @@
             this.ckTagsSucceded.AutoSize = true;
             this.ckTagsSucceded.Checked = true;
             this.ckTagsSucceded.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckTagsSucceded.Location = new System.Drawing.Point(182, 88);
+            this.ckTagsSucceded.Location = new System.Drawing.Point(208, 167);
             this.ckTagsSucceded.Name = "ckTagsSucceded";
             this.ckTagsSucceded.Size = new System.Drawing.Size(184, 17);
             this.ckTagsSucceded.TabIndex = 41;
@@ -1179,7 +1230,7 @@
             // ckReadAllErrors
             // 
             this.ckReadAllErrors.AutoSize = true;
-            this.ckReadAllErrors.Location = new System.Drawing.Point(390, 61);
+            this.ckReadAllErrors.Location = new System.Drawing.Point(403, 70);
             this.ckReadAllErrors.Name = "ckReadAllErrors";
             this.ckReadAllErrors.Size = new System.Drawing.Size(160, 17);
             this.ckReadAllErrors.TabIndex = 42;
@@ -2010,9 +2061,9 @@
             // gbUserDefinedAttributes
             // 
             this.gbUserDefinedAttributes.Controls.Add(this.gbYOffset);
-            this.gbUserDefinedAttributes.Location = new System.Drawing.Point(571, 204);
+            this.gbUserDefinedAttributes.Location = new System.Drawing.Point(571, 195);
             this.gbUserDefinedAttributes.Name = "gbUserDefinedAttributes";
-            this.gbUserDefinedAttributes.Size = new System.Drawing.Size(222, 186);
+            this.gbUserDefinedAttributes.Size = new System.Drawing.Size(222, 194);
             this.gbUserDefinedAttributes.TabIndex = 66;
             this.gbUserDefinedAttributes.TabStop = false;
             this.gbUserDefinedAttributes.Text = "User defined attributes";
@@ -2047,7 +2098,7 @@
             this.gbMeasinfo.Controls.Add(this.gbMeasname);
             this.gbMeasinfo.Location = new System.Drawing.Point(7, 6);
             this.gbMeasinfo.Name = "gbMeasinfo";
-            this.gbMeasinfo.Size = new System.Drawing.Size(786, 192);
+            this.gbMeasinfo.Size = new System.Drawing.Size(786, 184);
             this.gbMeasinfo.TabIndex = 52;
             this.gbMeasinfo.TabStop = false;
             this.gbMeasinfo.Text = "Measinfo";
@@ -2055,7 +2106,7 @@
             // gbScaleYAxis
             // 
             this.gbScaleYAxis.Controls.Add(this.txtScaleYAxis);
-            this.gbScaleYAxis.Location = new System.Drawing.Point(513, 149);
+            this.gbScaleYAxis.Location = new System.Drawing.Point(513, 141);
             this.gbScaleYAxis.Name = "gbScaleYAxis";
             this.gbScaleYAxis.Size = new System.Drawing.Size(100, 40);
             this.gbScaleYAxis.TabIndex = 5;
@@ -2075,7 +2126,7 @@
             // gbGraphLegend
             // 
             this.gbGraphLegend.Controls.Add(this.txtGraphLegend);
-            this.gbGraphLegend.Location = new System.Drawing.Point(510, 107);
+            this.gbGraphLegend.Location = new System.Drawing.Point(510, 99);
             this.gbGraphLegend.Name = "gbGraphLegend";
             this.gbGraphLegend.Size = new System.Drawing.Size(238, 40);
             this.gbGraphLegend.TabIndex = 4;
@@ -2095,7 +2146,7 @@
             // gbXLegend
             // 
             this.gbXLegend.Controls.Add(this.txtXLegend);
-            this.gbXLegend.Location = new System.Drawing.Point(510, 61);
+            this.gbXLegend.Location = new System.Drawing.Point(510, 53);
             this.gbXLegend.Name = "gbXLegend";
             this.gbXLegend.Size = new System.Drawing.Size(238, 40);
             this.gbXLegend.TabIndex = 3;
@@ -2115,7 +2166,7 @@
             // gbYLegend
             // 
             this.gbYLegend.Controls.Add(this.txtYLegend);
-            this.gbYLegend.Location = new System.Drawing.Point(510, 19);
+            this.gbYLegend.Location = new System.Drawing.Point(510, 11);
             this.gbYLegend.Name = "gbYLegend";
             this.gbYLegend.Size = new System.Drawing.Size(238, 40);
             this.gbYLegend.TabIndex = 2;
@@ -2174,34 +2225,64 @@
             // 
             // cbActualMeasConfiguration
             // 
+            this.cbActualMeasConfiguration.Controls.Add(this.groupBox10);
+            this.cbActualMeasConfiguration.Controls.Add(this.gbMeasconfigDevice);
             this.cbActualMeasConfiguration.Controls.Add(this.gbSleepAfterSingleRead);
             this.cbActualMeasConfiguration.Controls.Add(this.ckReadAllErrors);
             this.cbActualMeasConfiguration.Controls.Add(this.ckMemoryWrap);
             this.cbActualMeasConfiguration.Controls.Add(this.gbSleep);
             this.cbActualMeasConfiguration.Controls.Add(this.ckCal);
             this.cbActualMeasConfiguration.Controls.Add(this.gbMeasType);
-            this.cbActualMeasConfiguration.Controls.Add(this.ckChannel1);
             this.cbActualMeasConfiguration.Controls.Add(this.ckNewMeas);
             this.cbActualMeasConfiguration.Controls.Add(this.ckShowResults);
-            this.cbActualMeasConfiguration.Controls.Add(this.ckChannel0);
             this.cbActualMeasConfiguration.Controls.Add(this.ckReadRAW);
             this.cbActualMeasConfiguration.Controls.Add(this.ckTagsSucceded);
-            this.cbActualMeasConfiguration.Location = new System.Drawing.Point(7, 204);
+            this.cbActualMeasConfiguration.Location = new System.Drawing.Point(7, 194);
             this.cbActualMeasConfiguration.Name = "cbActualMeasConfiguration";
-            this.cbActualMeasConfiguration.Size = new System.Drawing.Size(558, 186);
+            this.cbActualMeasConfiguration.Size = new System.Drawing.Size(558, 195);
             this.cbActualMeasConfiguration.TabIndex = 0;
             this.cbActualMeasConfiguration.TabStop = false;
             this.cbActualMeasConfiguration.Text = "Measconfiguration";
             // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.ckChannel0);
+            this.groupBox10.Controls.Add(this.ckChannel1);
+            this.groupBox10.Location = new System.Drawing.Point(200, 17);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(132, 64);
+            this.groupBox10.TabIndex = 56;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Channels";
+            // 
+            // gbMeasconfigDevice
+            // 
+            this.gbMeasconfigDevice.Controls.Add(this.cbMeasconfigDevice);
+            this.gbMeasconfigDevice.Location = new System.Drawing.Point(6, 17);
+            this.gbMeasconfigDevice.Name = "gbMeasconfigDevice";
+            this.gbMeasconfigDevice.Size = new System.Drawing.Size(184, 37);
+            this.gbMeasconfigDevice.TabIndex = 55;
+            this.gbMeasconfigDevice.TabStop = false;
+            this.gbMeasconfigDevice.Text = "Device";
+            // 
+            // cbMeasconfigDevice
+            // 
+            this.cbMeasconfigDevice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbMeasconfigDevice.FormattingEnabled = true;
+            this.cbMeasconfigDevice.Location = new System.Drawing.Point(3, 16);
+            this.cbMeasconfigDevice.Name = "cbMeasconfigDevice";
+            this.cbMeasconfigDevice.Size = new System.Drawing.Size(178, 21);
+            this.cbMeasconfigDevice.TabIndex = 51;
+            // 
             // gbSleepAfterSingleRead
             // 
             this.gbSleepAfterSingleRead.Controls.Add(this.txtSleepEverySingleRead);
-            this.gbSleepAfterSingleRead.Location = new System.Drawing.Point(389, 139);
+            this.gbSleepAfterSingleRead.Location = new System.Drawing.Point(401, 150);
             this.gbSleepAfterSingleRead.Name = "gbSleepAfterSingleRead";
-            this.gbSleepAfterSingleRead.Size = new System.Drawing.Size(161, 38);
+            this.gbSleepAfterSingleRead.Size = new System.Drawing.Size(132, 38);
             this.gbSleepAfterSingleRead.TabIndex = 54;
             this.gbSleepAfterSingleRead.TabStop = false;
-            this.gbSleepAfterSingleRead.Text = "Sleep every single read (ms)";
+            this.gbSleepAfterSingleRead.Text = "Sleep single read (ms)";
             // 
             // txtSleepEverySingleRead
             // 
@@ -2209,7 +2290,7 @@
             this.txtSleepEverySingleRead.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSleepEverySingleRead.Location = new System.Drawing.Point(3, 16);
             this.txtSleepEverySingleRead.Name = "txtSleepEverySingleRead";
-            this.txtSleepEverySingleRead.Size = new System.Drawing.Size(155, 22);
+            this.txtSleepEverySingleRead.Size = new System.Drawing.Size(126, 22);
             this.txtSleepEverySingleRead.TabIndex = 13;
             this.txtSleepEverySingleRead.Text = "5";
             // 
@@ -2218,9 +2299,9 @@
             this.gbMeasType.Controls.Add(this.rbFrequency_A_B);
             this.gbMeasType.Controls.Add(this.rbFrequencyA);
             this.gbMeasType.Controls.Add(this.rbPhaseAB);
-            this.gbMeasType.Location = new System.Drawing.Point(12, 19);
+            this.gbMeasType.Location = new System.Drawing.Point(5, 67);
             this.gbMeasType.Name = "gbMeasType";
-            this.gbMeasType.Size = new System.Drawing.Size(148, 82);
+            this.gbMeasType.Size = new System.Drawing.Size(148, 84);
             this.gbMeasType.TabIndex = 48;
             this.gbMeasType.TabStop = false;
             this.gbMeasType.Text = "Meastype";
@@ -2941,7 +3022,7 @@
             // ckMeasResultDefinitionActive
             // 
             this.ckMeasResultDefinitionActive.AutoSize = true;
-            this.ckMeasResultDefinitionActive.Location = new System.Drawing.Point(207, 435);
+            this.ckMeasResultDefinitionActive.Location = new System.Drawing.Point(200, 435);
             this.ckMeasResultDefinitionActive.Name = "ckMeasResultDefinitionActive";
             this.ckMeasResultDefinitionActive.Size = new System.Drawing.Size(83, 17);
             this.ckMeasResultDefinitionActive.TabIndex = 62;
@@ -3365,8 +3446,7 @@
             // 
             // gbFileInfos
             // 
-            this.gbFileInfos.Controls.Add(this.rtbDataFile);
-            this.gbFileInfos.Controls.Add(this.dataGridView1);
+            this.gbFileInfos.Controls.Add(this.spcResultFiles);
             this.gbFileInfos.Controls.Add(this.pnlResultfilesLeft);
             this.gbFileInfos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbFileInfos.Location = new System.Drawing.Point(0, 0);
@@ -3376,16 +3456,23 @@
             this.gbFileInfos.TabStop = false;
             this.gbFileInfos.Text = "Resultfiles";
             // 
-            // rtbDataFile
+            // spcResultFiles
             // 
-            this.rtbDataFile.BackColor = System.Drawing.SystemColors.Info;
-            this.rtbDataFile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rtbDataFile.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDataFile.Location = new System.Drawing.Point(1029, 16);
-            this.rtbDataFile.Name = "rtbDataFile";
-            this.rtbDataFile.Size = new System.Drawing.Size(731, 617);
-            this.rtbDataFile.TabIndex = 15;
-            this.rtbDataFile.Text = "";
+            this.spcResultFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spcResultFiles.Location = new System.Drawing.Point(621, 16);
+            this.spcResultFiles.Name = "spcResultFiles";
+            // 
+            // spcResultFiles.Panel1
+            // 
+            this.spcResultFiles.Panel1.Controls.Add(this.dataGridView1);
+            // 
+            // spcResultFiles.Panel2
+            // 
+            this.spcResultFiles.Panel2.Controls.Add(this.gbDatafile);
+            this.spcResultFiles.Panel2.Controls.Add(this.gbHeaderfile);
+            this.spcResultFiles.Size = new System.Drawing.Size(1139, 617);
+            this.spcResultFiles.SplitterDistance = 379;
+            this.spcResultFiles.TabIndex = 16;
             // 
             // dataGridView1
             // 
@@ -3395,14 +3482,14 @@
             this.colFileName,
             this.colFileCreate,
             this.colFileSize});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView1.Location = new System.Drawing.Point(227, 16);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(796, 617);
+            this.dataGridView1.Size = new System.Drawing.Size(379, 617);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -3427,27 +3514,342 @@
             this.colFileSize.ReadOnly = true;
             this.colFileSize.Width = 66;
             // 
+            // gbDatafile
+            // 
+            this.gbDatafile.Controls.Add(this.rtbDataFile);
+            this.gbDatafile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbDatafile.Location = new System.Drawing.Point(0, 191);
+            this.gbDatafile.Name = "gbDatafile";
+            this.gbDatafile.Size = new System.Drawing.Size(756, 426);
+            this.gbDatafile.TabIndex = 0;
+            this.gbDatafile.TabStop = false;
+            this.gbDatafile.Text = "Datafile";
+            // 
+            // rtbDataFile
+            // 
+            this.rtbDataFile.BackColor = System.Drawing.SystemColors.Info;
+            this.rtbDataFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDataFile.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbDataFile.Location = new System.Drawing.Point(3, 16);
+            this.rtbDataFile.Name = "rtbDataFile";
+            this.rtbDataFile.Size = new System.Drawing.Size(750, 407);
+            this.rtbDataFile.TabIndex = 15;
+            this.rtbDataFile.Text = "";
+            // 
+            // gbHeaderfile
+            // 
+            this.gbHeaderfile.Controls.Add(this.rtbHeaderfile);
+            this.gbHeaderfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbHeaderfile.Location = new System.Drawing.Point(0, 0);
+            this.gbHeaderfile.Name = "gbHeaderfile";
+            this.gbHeaderfile.Size = new System.Drawing.Size(756, 191);
+            this.gbHeaderfile.TabIndex = 69;
+            this.gbHeaderfile.TabStop = false;
+            this.gbHeaderfile.Text = "Headerfile";
+            // 
+            // rtbHeaderfile
+            // 
+            this.rtbHeaderfile.BackColor = System.Drawing.SystemColors.Info;
+            this.rtbHeaderfile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbHeaderfile.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbHeaderfile.Location = new System.Drawing.Point(3, 16);
+            this.rtbHeaderfile.Name = "rtbHeaderfile";
+            this.rtbHeaderfile.Size = new System.Drawing.Size(750, 172);
+            this.rtbHeaderfile.TabIndex = 16;
+            this.rtbHeaderfile.Text = "";
+            // 
             // pnlResultfilesLeft
             // 
+            this.pnlResultfilesLeft.Controls.Add(this.groupBox9);
             this.pnlResultfilesLeft.Controls.Add(this.groupBox8);
             this.pnlResultfilesLeft.Controls.Add(this.gbStatistikType);
-            this.pnlResultfilesLeft.Controls.Add(this.cbUseHeaderfile);
+            this.pnlResultfilesLeft.Controls.Add(this.groupBox15);
             this.pnlResultfilesLeft.Controls.Add(this.gbOutliers);
             this.pnlResultfilesLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlResultfilesLeft.Location = new System.Drawing.Point(3, 16);
             this.pnlResultfilesLeft.Name = "pnlResultfilesLeft";
-            this.pnlResultfilesLeft.Size = new System.Drawing.Size(224, 617);
+            this.pnlResultfilesLeft.Size = new System.Drawing.Size(618, 617);
             this.pnlResultfilesLeft.TabIndex = 1;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.gbMeasAttMeasOffset);
+            this.groupBox9.Controls.Add(this.gbMeasAttEndtime);
+            this.groupBox9.Controls.Add(this.gbMeasAttStarttime);
+            this.groupBox9.Controls.Add(this.gbMeasAttStartdate);
+            this.groupBox9.Controls.Add(this.gbMeasAttMeasDevice);
+            this.groupBox9.Controls.Add(this.gbMeasAttScaleYAxis);
+            this.groupBox9.Controls.Add(this.gbMeasAttGraph);
+            this.groupBox9.Controls.Add(this.gbMeasAttXLegend);
+            this.groupBox9.Controls.Add(this.gbMeasAttYLegend);
+            this.groupBox9.Controls.Add(this.gbMeasAttMeasName);
+            this.groupBox9.Location = new System.Drawing.Point(235, 16);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(378, 441);
+            this.groupBox9.TabIndex = 68;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Meas attributes";
+            // 
+            // gbMeasAttMeasOffset
+            // 
+            this.gbMeasAttMeasOffset.Controls.Add(this.txtMeasAttMeasOffset);
+            this.gbMeasAttMeasOffset.Location = new System.Drawing.Point(6, 399);
+            this.gbMeasAttMeasOffset.Name = "gbMeasAttMeasOffset";
+            this.gbMeasAttMeasOffset.Size = new System.Drawing.Size(205, 40);
+            this.gbMeasAttMeasOffset.TabIndex = 56;
+            this.gbMeasAttMeasOffset.TabStop = false;
+            this.gbMeasAttMeasOffset.Text = "Const Y-offset of measurment";
+            // 
+            // txtMeasAttMeasOffset
+            // 
+            this.txtMeasAttMeasOffset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttMeasOffset.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttMeasOffset.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttMeasOffset.Name = "txtMeasAttMeasOffset";
+            this.txtMeasAttMeasOffset.Size = new System.Drawing.Size(199, 22);
+            this.txtMeasAttMeasOffset.TabIndex = 0;
+            this.txtMeasAttMeasOffset.Text = "0";
+            // 
+            // gbMeasAttEndtime
+            // 
+            this.gbMeasAttEndtime.Controls.Add(this.txtMeasAttEndtime);
+            this.gbMeasAttEndtime.Location = new System.Drawing.Point(158, 345);
+            this.gbMeasAttEndtime.Name = "gbMeasAttEndtime";
+            this.gbMeasAttEndtime.Size = new System.Drawing.Size(146, 40);
+            this.gbMeasAttEndtime.TabIndex = 55;
+            this.gbMeasAttEndtime.TabStop = false;
+            this.gbMeasAttEndtime.Text = "X-Endvalue";
+            // 
+            // txtMeasAttEndtime
+            // 
+            this.txtMeasAttEndtime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttEndtime.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttEndtime.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttEndtime.Name = "txtMeasAttEndtime";
+            this.txtMeasAttEndtime.Size = new System.Drawing.Size(140, 22);
+            this.txtMeasAttEndtime.TabIndex = 0;
+            this.txtMeasAttEndtime.Text = "0";
+            // 
+            // gbMeasAttStarttime
+            // 
+            this.gbMeasAttStarttime.Controls.Add(this.txtMeasAttStarttime);
+            this.gbMeasAttStarttime.Location = new System.Drawing.Point(6, 345);
+            this.gbMeasAttStarttime.Name = "gbMeasAttStarttime";
+            this.gbMeasAttStarttime.Size = new System.Drawing.Size(146, 40);
+            this.gbMeasAttStarttime.TabIndex = 54;
+            this.gbMeasAttStarttime.TabStop = false;
+            this.gbMeasAttStarttime.Text = "X-Startvalue";
+            // 
+            // txtMeasAttStarttime
+            // 
+            this.txtMeasAttStarttime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttStarttime.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttStarttime.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttStarttime.Name = "txtMeasAttStarttime";
+            this.txtMeasAttStarttime.Size = new System.Drawing.Size(140, 22);
+            this.txtMeasAttStarttime.TabIndex = 0;
+            this.txtMeasAttStarttime.Text = "0";
+            // 
+            // gbMeasAttStartdate
+            // 
+            this.gbMeasAttStartdate.Controls.Add(this.txtMeasAttStartdate);
+            this.gbMeasAttStartdate.Location = new System.Drawing.Point(6, 294);
+            this.gbMeasAttStartdate.Name = "gbMeasAttStartdate";
+            this.gbMeasAttStartdate.Size = new System.Drawing.Size(366, 40);
+            this.gbMeasAttStartdate.TabIndex = 53;
+            this.gbMeasAttStartdate.TabStop = false;
+            this.gbMeasAttStartdate.Text = "Startdate";
+            // 
+            // txtMeasAttStartdate
+            // 
+            this.txtMeasAttStartdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttStartdate.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttStartdate.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttStartdate.Name = "txtMeasAttStartdate";
+            this.txtMeasAttStartdate.Size = new System.Drawing.Size(360, 22);
+            this.txtMeasAttStartdate.TabIndex = 0;
+            // 
+            // gbMeasAttMeasDevice
+            // 
+            this.gbMeasAttMeasDevice.Controls.Add(this.txtMeasAttMeasDevice);
+            this.gbMeasAttMeasDevice.Location = new System.Drawing.Point(6, 19);
+            this.gbMeasAttMeasDevice.Name = "gbMeasAttMeasDevice";
+            this.gbMeasAttMeasDevice.Size = new System.Drawing.Size(366, 40);
+            this.gbMeasAttMeasDevice.TabIndex = 52;
+            this.gbMeasAttMeasDevice.TabStop = false;
+            this.gbMeasAttMeasDevice.Text = "Device";
+            // 
+            // txtMeasAttMeasDevice
+            // 
+            this.txtMeasAttMeasDevice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttMeasDevice.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttMeasDevice.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttMeasDevice.Name = "txtMeasAttMeasDevice";
+            this.txtMeasAttMeasDevice.Size = new System.Drawing.Size(360, 22);
+            this.txtMeasAttMeasDevice.TabIndex = 0;
+            this.txtMeasAttMeasDevice.Text = "GT900 USB3, API 1.7.1";
+            // 
+            // gbMeasAttScaleYAxis
+            // 
+            this.gbMeasAttScaleYAxis.Controls.Add(this.txtMeasAttScaleYAxis);
+            this.gbMeasAttScaleYAxis.Location = new System.Drawing.Point(230, 399);
+            this.gbMeasAttScaleYAxis.Name = "gbMeasAttScaleYAxis";
+            this.gbMeasAttScaleYAxis.Size = new System.Drawing.Size(100, 40);
+            this.gbMeasAttScaleYAxis.TabIndex = 51;
+            this.gbMeasAttScaleYAxis.TabStop = false;
+            this.gbMeasAttScaleYAxis.Text = "Scale Y-Axis";
+            // 
+            // txtMeasAttScaleYAxis
+            // 
+            this.txtMeasAttScaleYAxis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttScaleYAxis.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttScaleYAxis.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttScaleYAxis.Name = "txtMeasAttScaleYAxis";
+            this.txtMeasAttScaleYAxis.Size = new System.Drawing.Size(94, 22);
+            this.txtMeasAttScaleYAxis.TabIndex = 0;
+            this.txtMeasAttScaleYAxis.Text = "9";
+            // 
+            // gbMeasAttGraph
+            // 
+            this.gbMeasAttGraph.Controls.Add(this.txtMeasAttGraphLegend);
+            this.gbMeasAttGraph.Location = new System.Drawing.Point(6, 204);
+            this.gbMeasAttGraph.Name = "gbMeasAttGraph";
+            this.gbMeasAttGraph.Size = new System.Drawing.Size(366, 40);
+            this.gbMeasAttGraph.TabIndex = 50;
+            this.gbMeasAttGraph.TabStop = false;
+            this.gbMeasAttGraph.Text = "Graph-Legend";
+            // 
+            // txtMeasAttGraphLegend
+            // 
+            this.txtMeasAttGraphLegend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttGraphLegend.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttGraphLegend.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttGraphLegend.Name = "txtMeasAttGraphLegend";
+            this.txtMeasAttGraphLegend.Size = new System.Drawing.Size(360, 22);
+            this.txtMeasAttGraphLegend.TabIndex = 0;
+            this.txtMeasAttGraphLegend.Text = "Phase A-B";
+            // 
+            // gbMeasAttXLegend
+            // 
+            this.gbMeasAttXLegend.Controls.Add(this.txtMeasAttXLegend);
+            this.gbMeasAttXLegend.Location = new System.Drawing.Point(6, 109);
+            this.gbMeasAttXLegend.Name = "gbMeasAttXLegend";
+            this.gbMeasAttXLegend.Size = new System.Drawing.Size(366, 40);
+            this.gbMeasAttXLegend.TabIndex = 49;
+            this.gbMeasAttXLegend.TabStop = false;
+            this.gbMeasAttXLegend.Text = "X-Legend";
+            // 
+            // txtMeasAttXLegend
+            // 
+            this.txtMeasAttXLegend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttXLegend.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttXLegend.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttXLegend.Name = "txtMeasAttXLegend";
+            this.txtMeasAttXLegend.Size = new System.Drawing.Size(360, 22);
+            this.txtMeasAttXLegend.TabIndex = 0;
+            this.txtMeasAttXLegend.Text = "timestamp (s)";
+            // 
+            // gbMeasAttYLegend
+            // 
+            this.gbMeasAttYLegend.Controls.Add(this.txtMeasAttYLegend);
+            this.gbMeasAttYLegend.Location = new System.Drawing.Point(6, 153);
+            this.gbMeasAttYLegend.Name = "gbMeasAttYLegend";
+            this.gbMeasAttYLegend.Size = new System.Drawing.Size(366, 40);
+            this.gbMeasAttYLegend.TabIndex = 48;
+            this.gbMeasAttYLegend.TabStop = false;
+            this.gbMeasAttYLegend.Text = "Y-Legend";
+            // 
+            // txtMeasAttYLegend
+            // 
+            this.txtMeasAttYLegend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttYLegend.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttYLegend.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttYLegend.Name = "txtMeasAttYLegend";
+            this.txtMeasAttYLegend.Size = new System.Drawing.Size(360, 22);
+            this.txtMeasAttYLegend.TabIndex = 0;
+            this.txtMeasAttYLegend.Text = "offset (ns)";
+            // 
+            // gbMeasAttMeasName
+            // 
+            this.gbMeasAttMeasName.Controls.Add(this.txtMeasAttMeasName);
+            this.gbMeasAttMeasName.Location = new System.Drawing.Point(6, 65);
+            this.gbMeasAttMeasName.Name = "gbMeasAttMeasName";
+            this.gbMeasAttMeasName.Size = new System.Drawing.Size(366, 40);
+            this.gbMeasAttMeasName.TabIndex = 47;
+            this.gbMeasAttMeasName.TabStop = false;
+            this.gbMeasAttMeasName.Text = "Measurementname";
+            // 
+            // txtMeasAttMeasName
+            // 
+            this.txtMeasAttMeasName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMeasAttMeasName.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMeasAttMeasName.Location = new System.Drawing.Point(3, 16);
+            this.txtMeasAttMeasName.Name = "txtMeasAttMeasName";
+            this.txtMeasAttMeasName.Size = new System.Drawing.Size(360, 22);
+            this.txtMeasAttMeasName.TabIndex = 0;
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.hsMakeHeader);
             this.groupBox8.Controls.Add(this.hsRunGraph);
+            this.groupBox8.Controls.Add(this.cbUseHeaderfile);
             this.groupBox8.Location = new System.Drawing.Point(10, 16);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(200, 100);
             this.groupBox8.TabIndex = 16;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Line Graph";
+            // 
+            // hsMakeHeader
+            // 
+            this.hsMakeHeader.BackColor = System.Drawing.Color.Transparent;
+            this.hsMakeHeader.BackColorHover = System.Drawing.Color.Transparent;
+            this.hsMakeHeader.BorderColorHover = System.Drawing.Color.Transparent;
+            this.hsMakeHeader.ContextMenuEdges = SeControlsLib.Edge.Center;
+            this.hsMakeHeader.ContextMenuXDirection = SeControlsLib.XDirection.Right;
+            this.hsMakeHeader.ContextMenuYDirection = SeControlsLib.YDirection.Down;
+            this.hsMakeHeader.DefaultButtonMode = SeControlsLib.BtnMode.Context;
+            this.hsMakeHeader.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.hsMakeHeader.FlatAppearance.BorderSize = 0;
+            this.hsMakeHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hsMakeHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsMakeHeader.HoverStyle = SeControlsLib.frameStyle.none;
+            this.hsMakeHeader.Image = global::PRCCounterApp.Properties.Resources.document_x24;
+            this.hsMakeHeader.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.hsMakeHeader.ImageHover = global::PRCCounterApp.Properties.Resources.document_blue_x24;
+            this.hsMakeHeader.ImageToggleOnSelect = false;
+            this.hsMakeHeader.Location = new System.Drawing.Point(3, 19);
+            this.hsMakeHeader.Marked = false;
+            this.hsMakeHeader.MarkedColor = System.Drawing.Color.Teal;
+            this.hsMakeHeader.MarkedStyle = SeControlsLib.frameStyle.filled;
+            this.hsMakeHeader.MarkedText = "";
+            this.hsMakeHeader.MarkMode = false;
+            this.hsMakeHeader.Name = "hsMakeHeader";
+            this.hsMakeHeader.NonMarkedText = "";
+            this.hsMakeHeader.Shortcut = BasicClassLibrary.Shortcut.None;
+            this.hsMakeHeader.ShowShortcut = false;
+            this.hsMakeHeader.Size = new System.Drawing.Size(97, 50);
+            this.hsMakeHeader.TabIndex = 65;
+            this.hsMakeHeader.Text = "Make Headerfile";
+            this.hsMakeHeader.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.hsMakeHeader.ToolTipActive = false;
+            this.hsMakeHeader.ToolTipAutomaticDelay = 500;
+            this.hsMakeHeader.ToolTipAutoPopDelay = 5000;
+            this.hsMakeHeader.ToolTipBackColor = System.Drawing.SystemColors.Info;
+            this.hsMakeHeader.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.hsMakeHeader.ToolTipFor4ContextMenu = true;
+            this.hsMakeHeader.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.hsMakeHeader.ToolTipInitialDelay = 500;
+            this.hsMakeHeader.ToolTipIsBallon = false;
+            this.hsMakeHeader.ToolTipOwnerDraw = false;
+            this.hsMakeHeader.ToolTipReshowDelay = 100;
+            this.hsMakeHeader.ToolTipShowAlways = false;
+            this.hsMakeHeader.ToolTipText = "";
+            this.hsMakeHeader.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
+            this.hsMakeHeader.ToolTipTitle = "";
+            this.hsMakeHeader.ToolTipTitleColor = System.Drawing.Color.Blue;
+            this.hsMakeHeader.UseVisualStyleBackColor = false;
+            this.hsMakeHeader.Click += new System.EventHandler(this.hsMakeHeader_Click);
             // 
             // hsRunGraph
             // 
@@ -3467,7 +3869,7 @@
             this.hsRunGraph.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.hsRunGraph.ImageHover = global::PRCCounterApp.Properties.Resources.graph_2_24x;
             this.hsRunGraph.ImageToggleOnSelect = false;
-            this.hsRunGraph.Location = new System.Drawing.Point(105, 19);
+            this.hsRunGraph.Location = new System.Drawing.Point(106, 19);
             this.hsRunGraph.Marked = false;
             this.hsRunGraph.MarkedColor = System.Drawing.Color.Teal;
             this.hsRunGraph.MarkedStyle = SeControlsLib.frameStyle.filled;
@@ -3499,6 +3901,16 @@
             this.hsRunGraph.ToolTipTitleColor = System.Drawing.Color.Blue;
             this.hsRunGraph.UseVisualStyleBackColor = false;
             this.hsRunGraph.Click += new System.EventHandler(this.hsRunGraph_Click);
+            // 
+            // cbUseHeaderfile
+            // 
+            this.cbUseHeaderfile.AutoSize = true;
+            this.cbUseHeaderfile.Location = new System.Drawing.Point(6, 75);
+            this.cbUseHeaderfile.Name = "cbUseHeaderfile";
+            this.cbUseHeaderfile.Size = new System.Drawing.Size(94, 17);
+            this.cbUseHeaderfile.TabIndex = 3;
+            this.cbUseHeaderfile.Text = "Use headerfile";
+            this.cbUseHeaderfile.UseVisualStyleBackColor = true;
             // 
             // gbStatistikType
             // 
@@ -3609,15 +4021,25 @@
             this.ckTDEV.Text = "TDEV";
             this.ckTDEV.UseVisualStyleBackColor = true;
             // 
-            // cbUseHeaderfile
+            // groupBox15
             // 
-            this.cbUseHeaderfile.AutoSize = true;
-            this.cbUseHeaderfile.Location = new System.Drawing.Point(16, 295);
-            this.cbUseHeaderfile.Name = "cbUseHeaderfile";
-            this.cbUseHeaderfile.Size = new System.Drawing.Size(94, 17);
-            this.cbUseHeaderfile.TabIndex = 3;
-            this.cbUseHeaderfile.Text = "Use headerfile";
-            this.cbUseHeaderfile.UseVisualStyleBackColor = true;
+            this.groupBox15.Controls.Add(this.textBox6);
+            this.groupBox15.Location = new System.Drawing.Point(13, 301);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(183, 38);
+            this.groupBox15.TabIndex = 52;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Additional Y-Offset for Graph";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox6.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(3, 16);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(177, 22);
+            this.textBox6.TabIndex = 14;
+            this.textBox6.Text = "0";
             // 
             // gbOutliers
             // 
@@ -3628,10 +4050,10 @@
             this.gbOutliers.Controls.Add(this.txtOutliers);
             this.gbOutliers.Location = new System.Drawing.Point(10, 345);
             this.gbOutliers.Name = "gbOutliers";
-            this.gbOutliers.Size = new System.Drawing.Size(86, 136);
+            this.gbOutliers.Size = new System.Drawing.Size(125, 136);
             this.gbOutliers.TabIndex = 67;
             this.gbOutliers.TabStop = false;
-            this.gbOutliers.Text = "Outliers";
+            this.gbOutliers.Text = "Outliers for Graph";
             // 
             // hotSpot1
             // 
@@ -3661,7 +4083,7 @@
             this.hotSpot1.NonMarkedText = "";
             this.hotSpot1.Shortcut = BasicClassLibrary.Shortcut.None;
             this.hotSpot1.ShowShortcut = false;
-            this.hotSpot1.Size = new System.Drawing.Size(80, 21);
+            this.hotSpot1.Size = new System.Drawing.Size(119, 21);
             this.hotSpot1.TabIndex = 23;
             this.hotSpot1.Text = "No outliers";
             this.hotSpot1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3711,7 +4133,7 @@
             this.hsOutliers3.NonMarkedText = "";
             this.hsOutliers3.Shortcut = BasicClassLibrary.Shortcut.None;
             this.hsOutliers3.ShowShortcut = false;
-            this.hsOutliers3.Size = new System.Drawing.Size(80, 21);
+            this.hsOutliers3.Size = new System.Drawing.Size(119, 21);
             this.hsOutliers3.TabIndex = 22;
             this.hsOutliers3.Text = "1E-3";
             this.hsOutliers3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3762,7 +4184,7 @@
             this.hsOutliers6.NonMarkedText = "";
             this.hsOutliers6.Shortcut = BasicClassLibrary.Shortcut.None;
             this.hsOutliers6.ShowShortcut = false;
-            this.hsOutliers6.Size = new System.Drawing.Size(80, 21);
+            this.hsOutliers6.Size = new System.Drawing.Size(119, 21);
             this.hsOutliers6.TabIndex = 21;
             this.hsOutliers6.Text = "1E-6";
             this.hsOutliers6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3813,7 +4235,7 @@
             this.hsOutlier9.NonMarkedText = "";
             this.hsOutlier9.Shortcut = BasicClassLibrary.Shortcut.None;
             this.hsOutlier9.ShowShortcut = false;
-            this.hsOutlier9.Size = new System.Drawing.Size(80, 21);
+            this.hsOutlier9.Size = new System.Drawing.Size(119, 21);
             this.hsOutlier9.TabIndex = 20;
             this.hsOutlier9.Text = "1E-9";
             this.hsOutlier9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -3841,9 +4263,9 @@
             this.txtOutliers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtOutliers.Location = new System.Drawing.Point(3, 16);
             this.txtOutliers.Name = "txtOutliers";
-            this.txtOutliers.Size = new System.Drawing.Size(80, 20);
+            this.txtOutliers.Size = new System.Drawing.Size(119, 20);
             this.txtOutliers.TabIndex = 13;
-            this.txtOutliers.Text = "0";
+            this.txtOutliers.Text = "0.0";
             // 
             // flpResults
             // 
@@ -4356,6 +4778,9 @@
             this.gbMeasname.PerformLayout();
             this.cbActualMeasConfiguration.ResumeLayout(false);
             this.cbActualMeasConfiguration.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.gbMeasconfigDevice.ResumeLayout(false);
             this.gbSleepAfterSingleRead.ResumeLayout(false);
             this.gbSleepAfterSingleRead.PerformLayout();
             this.gbMeasType.ResumeLayout(false);
@@ -4415,12 +4840,41 @@
             this.tabPageMeasFiles.ResumeLayout(false);
             this.pnlMeasResultsCenter.ResumeLayout(false);
             this.gbFileInfos.ResumeLayout(false);
+            this.spcResultFiles.Panel1.ResumeLayout(false);
+            this.spcResultFiles.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spcResultFiles)).EndInit();
+            this.spcResultFiles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gbDatafile.ResumeLayout(false);
+            this.gbHeaderfile.ResumeLayout(false);
             this.pnlResultfilesLeft.ResumeLayout(false);
-            this.pnlResultfilesLeft.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.gbMeasAttMeasOffset.ResumeLayout(false);
+            this.gbMeasAttMeasOffset.PerformLayout();
+            this.gbMeasAttEndtime.ResumeLayout(false);
+            this.gbMeasAttEndtime.PerformLayout();
+            this.gbMeasAttStarttime.ResumeLayout(false);
+            this.gbMeasAttStarttime.PerformLayout();
+            this.gbMeasAttStartdate.ResumeLayout(false);
+            this.gbMeasAttStartdate.PerformLayout();
+            this.gbMeasAttMeasDevice.ResumeLayout(false);
+            this.gbMeasAttMeasDevice.PerformLayout();
+            this.gbMeasAttScaleYAxis.ResumeLayout(false);
+            this.gbMeasAttScaleYAxis.PerformLayout();
+            this.gbMeasAttGraph.ResumeLayout(false);
+            this.gbMeasAttGraph.PerformLayout();
+            this.gbMeasAttXLegend.ResumeLayout(false);
+            this.gbMeasAttXLegend.PerformLayout();
+            this.gbMeasAttYLegend.ResumeLayout(false);
+            this.gbMeasAttYLegend.PerformLayout();
+            this.gbMeasAttMeasName.ResumeLayout(false);
+            this.gbMeasAttMeasName.PerformLayout();
             this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.gbStatistikType.ResumeLayout(false);
             this.gbStatistikType.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.gbOutliers.ResumeLayout(false);
             this.gbOutliers.PerformLayout();
             this.flpResults.ResumeLayout(false);
@@ -4716,6 +5170,37 @@
         private System.Windows.Forms.CheckBox ckOADEV;
         private System.Windows.Forms.CheckBox ckADEV;
         private System.Windows.Forms.CheckBox ckTDEV;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox gbMeasAttScaleYAxis;
+        private System.Windows.Forms.TextBox txtMeasAttScaleYAxis;
+        private System.Windows.Forms.GroupBox gbMeasAttGraph;
+        private System.Windows.Forms.TextBox txtMeasAttGraphLegend;
+        private System.Windows.Forms.GroupBox gbMeasAttXLegend;
+        private System.Windows.Forms.TextBox txtMeasAttXLegend;
+        private System.Windows.Forms.GroupBox gbMeasAttYLegend;
+        private System.Windows.Forms.TextBox txtMeasAttYLegend;
+        private System.Windows.Forms.GroupBox gbMeasAttMeasName;
+        private System.Windows.Forms.TextBox txtMeasAttMeasName;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.GroupBox gbMeasAttMeasDevice;
+        private System.Windows.Forms.TextBox txtMeasAttMeasDevice;
+        private System.Windows.Forms.GroupBox gbHeaderfile;
+        private System.Windows.Forms.RichTextBox rtbHeaderfile;
+        private SeControlsLib.HotSpot hsMakeHeader;
+        private System.Windows.Forms.SplitContainer spcResultFiles;
+        private System.Windows.Forms.GroupBox gbDatafile;
+        private System.Windows.Forms.GroupBox gbMeasAttStartdate;
+        private System.Windows.Forms.TextBox txtMeasAttStartdate;
+        private System.Windows.Forms.GroupBox gbMeasAttEndtime;
+        private System.Windows.Forms.TextBox txtMeasAttEndtime;
+        private System.Windows.Forms.GroupBox gbMeasAttStarttime;
+        private System.Windows.Forms.TextBox txtMeasAttStarttime;
+        private System.Windows.Forms.GroupBox gbMeasAttMeasOffset;
+        private System.Windows.Forms.TextBox txtMeasAttMeasOffset;
+        private System.Windows.Forms.GroupBox gbMeasconfigDevice;
+        private System.Windows.Forms.ComboBox cbMeasconfigDevice;
+        private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn STAMP;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATASTAMP;
